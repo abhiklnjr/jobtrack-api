@@ -1,0 +1,12 @@
+spring:
+  datasource:
+    # Defaults to in-memory H2 for local dev; set DB_URL/DB_USER/DB_PASSWORD for Postgres (Cloud SQL).
+    url: ${DB_URL:jdbc:h2:mem:jobtrack}
+    username: ${DB_USER:sa}
+    password: ${DB_PASSWORD:}
+  jpa:
+    hibernate.ddl-auto: update   # swap for Flyway migrations later
+server:
+  port: ${PORT:8081}             # Cloud Run injects PORT
+app:
+  allowed-origin: ${ALLOWED_ORIGIN:*}
